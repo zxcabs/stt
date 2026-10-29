@@ -1,0 +1,19 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  bin = "./tmp/main"
+  cmd = "go build -tags sqlite_omit_load_extension -o ./tmp/main ./cmd/server/main.go"
+  delay = 2500
+  exclude_dir = ["assets", "tmp", "vendor", "client", "db", "web", "web_src"]
+  include_ext = ["go", "tpl", "toml"]
+  stop_on_error = true
+
+[color]
+  app = ""
+  build = "yellow"
+  main = "magenta"
+  runner = "green"
+
+[log]
+  time = true

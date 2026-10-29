@@ -1,0 +1,19 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    container_name: stt_master
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+      - go_modules:/go/pkg/mod
+      - ../data:/data
+    environment:
+      - CGO_ENABLED=1
+      - GOOS=linux
+    restart: unless-stopped
+
+volumes:
+  go_modules:
